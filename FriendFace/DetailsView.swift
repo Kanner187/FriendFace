@@ -120,10 +120,35 @@ struct DetailsView: View {
                 
                 //Friend List
                 Section(header: Text("Friends").foregroundColor(.secondary)){
-                    Text("\(self.friendList.count)")
+                    
+                    ForEach(self.friendList){ friend in
+                        NavigationLink(destination: DetailsView(user: friend, allUsers: self.allUsers)) {
+                            HStack{
+                                VStack(alignment: .leading){
+                                    Text(friend.name)
+                                        .font(.headline)
+                                    HStack{
+                                        Text("Company:")
+                                        .font(.system(size: 14))
+                                        
+                                        Text(friend.company)
+                                        .font(.system(size: 14))
+                                            .foregroundColor(.blue)
+                                    }
+                                    
+                                }
+                                Spacer()
+                                Text(friend.isActive ? "Online" : "Offline")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(friend.isActive ? .green : .red)
+                                    
+                            }
+                        }
+                    .buttonStyle(PlainButtonStyle())
+                    }
                 }
                 .frame(maxWidth: geometry.size.width)
-                .padding(.top)
+                .padding()
             
             }
         }
