@@ -16,6 +16,7 @@
 		1B2AEF7A238AF3A1007B77CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2AEF79238AF3A1007B77CA /* User.swift */; };
 		1B2AEF7C238AF461007B77CA /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2AEF7B238AF461007B77CA /* Friend.swift */; };
 		1B2AEF7E238BC5D4007B77CA /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2AEF7D238BC5D4007B77CA /* DetailsView.swift */; };
+		1B2AEF80238BFAA8007B77CA /* FriendDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2AEF7F238BFAA8007B77CA /* FriendDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1B2AEF79238AF3A1007B77CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1B2AEF7B238AF461007B77CA /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		1B2AEF7D238BC5D4007B77CA /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		1B2AEF7F238BFAA8007B77CA /* FriendDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				1B2AEF67238AF37D007B77CA /* SceneDelegate.swift */,
 				1B2AEF69238AF37D007B77CA /* ContentView.swift */,
 				1B2AEF7D238BC5D4007B77CA /* DetailsView.swift */,
+				1B2AEF7F238BFAA8007B77CA /* FriendDetailsView.swift */,
 				1B2AEF6B238AF382007B77CA /* Assets.xcassets */,
 				1B2AEF70238AF382007B77CA /* LaunchScreen.storyboard */,
 				1B2AEF73238AF382007B77CA /* Info.plist */,
@@ -160,6 +163,7 @@
 				1B2AEF7C238AF461007B77CA /* Friend.swift in Sources */,
 				1B2AEF68238AF37D007B77CA /* SceneDelegate.swift in Sources */,
 				1B2AEF6A238AF37D007B77CA /* ContentView.swift in Sources */,
+				1B2AEF80238BFAA8007B77CA /* FriendDetailsView.swift in Sources */,
 				1B2AEF7E238BC5D4007B77CA /* DetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
