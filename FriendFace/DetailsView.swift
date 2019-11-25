@@ -44,18 +44,17 @@ struct DetailsView: View {
     var body: some View {
         GeometryReader{ geometry in
             ScrollView{
+                Text(self.user.name)
+                .font(.title)
+                .padding()
                 
+                Divider()
                 //FIRST SECTION
                 Section(header:Text("Personal")
                     .foregroundColor(.secondary)){
                         
                     VStack(alignment: .leading , spacing: 10){
-                        HStack{
-                          Text("Name:      ")
-                          Text(self.user.name)
-                            .font(.system(size: 16))
-                            .foregroundColor(.blue)
-                        }
+                    
                         HStack{
                           Text("Age:          ")
                           Text("\(self.user.age)")
