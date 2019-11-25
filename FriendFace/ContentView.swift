@@ -14,8 +14,31 @@ struct ContentView: View {
     
     
     var body: some View {
-        Text("\(self.users.count)")
-            .onAppear(perform: self.loadData)
+        NavigationView{
+            List{
+                ForEach(self.users ){ user in
+                    NavigationLink(destination: DetailsView(user: user , allUsers: self.users)) {
+                        HStack{
+                            VStack(alignment:.leading){
+                                Text(user.name)
+                                    .font(.headline)
+                                Text(user.email)
+                                    .font(.system(size: 12))
+                                    .foregroundColor(.blue)
+                            }
+                            Spacer()
+                            Text(user.isActive ? "Online" : "Offline")
+                                .font(.system(size: 12))
+                                .foregroundColor(user.isActive ? Color.green : Color.red)
+                        }
+                    }
+            
+                }
+            }
+            .navigationBarTitle("FriendFace")
+        }
+        .onAppear(perform: self.loadData)
+    
     }
     
     
