@@ -43,7 +43,7 @@ struct DetailsView: View {
     
     var body: some View {
         GeometryReader{ geometry in
-            ScrollView{
+            ScrollView(.vertical){
                 Text(self.user.name)
                 .font(.title)
                 .padding()

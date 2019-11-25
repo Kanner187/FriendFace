@@ -11,6 +11,8 @@ import SwiftUI
 struct ContentView: View {
     //Properties
    @State var users = [User]()
+    @State private var showingAlert = false
+    @State private var message = ""
     
     
     var body: some View {
@@ -38,6 +40,9 @@ struct ContentView: View {
             .navigationBarTitle("FriendFace")
         }
         .onAppear(perform: self.loadData)
+        .alert(isPresented: $showingAlert) { () -> Alert in
+            Alert(title: Text("Internet connection"), message: Text(self.message), dismissButton: .default(Text("Okay")))
+        }
     
     }
     
@@ -67,7 +72,8 @@ struct ContentView: View {
                     return
                 }
             }
-            print("Error occurred: \(error?.localizedDescription ?? "Decoding error")")
+            self.message = error?.localizedDescription ?? "An error occurred"
+            self.showingAlert = true
             
         }.resume()
     }
