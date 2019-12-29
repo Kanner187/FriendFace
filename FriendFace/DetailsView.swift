@@ -12,15 +12,6 @@ struct DetailsView: View {
     @State var user: User
     let allUsers : [User]
     
-    var tagString: String{
-        var string = ""
-        for tag in user.tags{
-            let stag = tag + ", "
-            string.append(stag)
-        }
-        return string
-    }
-    
     
     //Computed Friends
     
@@ -45,41 +36,41 @@ struct DetailsView: View {
         GeometryReader{ geometry in
             ScrollView(.vertical){
                 Text(self.user.name)
-                .font(.title)
-                .padding()
+                    .font(.title)
+                    .padding()
                 
                 Divider()
                 //FIRST SECTION
                 Section(header:Text("Personal")
                     .foregroundColor(.secondary)){
                         
-                    VStack(alignment: .leading , spacing: 10){
-                    
-                        HStack{
-                          Text("Age:          ")
-                          Text("\(self.user.age)")
-                            .font(.system(size: 16))
-                            .foregroundColor(.blue)
+                        VStack(alignment: .leading , spacing: 10){
+                            
+                            HStack{
+                                Text("Age:          ")
+                                Text("\(self.user.age)")
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.blue)
+                            }
+                            HStack{
+                                Text("Email:       ")
+                                Text(self.user.email)
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.blue)
+                            }
+                            HStack{
+                                Text("Company:")
+                                Text(self.user.company)
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.blue)
+                            }
+                            HStack{
+                                Text("Address:  ")
+                                Text(self.user.address)
+                                    .font(.system(size: 16))
+                                    .foregroundColor(.blue)
+                            }
                         }
-                        HStack{
-                          Text("Email:       ")
-                          Text(self.user.email)
-                            .font(.system(size: 16))
-                            .foregroundColor(.blue)
-                        }
-                        HStack{
-                          Text("Company:")
-                          Text(self.user.company)
-                            .font(.system(size: 16))
-                            .foregroundColor(.blue)
-                        }
-                        HStack{
-                          Text("Address:  ")
-                          Text(self.user.address)
-                            .font(.system(size: 16))
-                            .foregroundColor(.blue)
-                        }
-                    }
                 }
                 .frame(maxWidth: geometry.size.width)
                 .padding(8)
@@ -93,8 +84,8 @@ struct DetailsView: View {
                         HStack(alignment: .center , spacing: 10){
                             Text("Registered Date:")
                             Text("\(self.user.registered)")
-                            .font(.system(size: 16))
-                            .foregroundColor(.blue)
+                                .font(.system(size: 16))
+                                .foregroundColor(.blue)
                         }
                         
                     }
@@ -107,9 +98,10 @@ struct DetailsView: View {
                 Section{
                     HStack(alignment: .top){
                         Text("Tags: ")
-                        Text(self.tagString)
+                        Text(ListFormatter.localizedString(byJoining: self.user.tags))
                             .font(.system(size: 16))
                             .foregroundColor(.blue)
+                            .padding(.horizontal)
                     }
                     
                 }
@@ -128,10 +120,10 @@ struct DetailsView: View {
                                         .font(.headline)
                                     HStack{
                                         Text("Company:")
-                                        .font(.system(size: 14))
+                                            .font(.system(size: 14))
                                         
                                         Text(friend.company)
-                                        .font(.system(size: 14))
+                                            .font(.system(size: 14))
                                             .foregroundColor(.blue)
                                     }
                                     
@@ -140,18 +132,19 @@ struct DetailsView: View {
                                 Text(friend.isActive ? "Online" : "Offline")
                                     .font(.system(size: 14))
                                     .foregroundColor(friend.isActive ? .green : .red)
-                                    
+                                
                             }
                         }
-                    .buttonStyle(PlainButtonStyle())
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .frame(maxWidth: geometry.size.width)
                 .padding()
-            
+                
             }
         }
-            .navigationBarTitle(Text(self.user.name) , displayMode: .inline)
+    .navigationBarHidden(true)
+        
     }
 }
 
